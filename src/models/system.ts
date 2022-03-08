@@ -8,3 +8,6 @@ export type Settings = {
 	footer: string
 	defaultGridSize: GridSettings
 }
+
+export type GameImage = { id: string; src: string }
+export type GameDeck = GameImage[]

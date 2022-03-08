@@ -4,7 +4,7 @@ export const MantineThemeConfig: Partial<MantineTheme> = {
 	loader: 'oval',
 	colorScheme: 'light',
 	primaryColor: 'blue',
-	// fontFamily,
+	fontFamily: 'League Spartan',
 }
 
 export default MantineThemeConfig

@@ -1,0 +1,30 @@
+export enum SoundMapEnum {
+  Error1 = 'error1',
+  Error2 = 'error2',
+  Error3 = 'error3',
+  SuccessSound = 'successNotification',
+  UILock = 'uiLock',
+  UIUnlock = 'uiUnlock',
+  UITap1 = 'tap1',
+  UITap2 = 'tap2',
+  UITap3 = 'tap3',
+  UITap4 = 'tap4',
+  UICameraShutter = 'cameraShutter',
+  StateChangeConfirmUp = 'changeConfirmUp',
+  StateChangeConfirmDown = 'changeConfirmDown',
+  NavigationHoverTap = 'hoverTap',
+  NavigationSelectionCompleteCelebration = 'navSelectionComplete',
+  NavigationForwardSelectionMinimal = 'navForwardSelectionMin',
+  NavigationBackwardSelectionMinimal = 'navBackwardSelectionMin',
+  NavigationForwardSelection = 'navForwardSelection',
+  NavigationBackwardSelection = 'navBackwardSelection',
+  NavTransitionLeft = 'navTransitionLeft',
+  NavTransitionRight = 'navTransitionRight',
+  NavInvalidSelection = 'navInvalidSelection',
+  NavCancel = 'navCancel',
+  UILoading = 'uiLoading',
+  UIRefresh = 'uiRefresh',
+}
+export const SoundMap = { ...SoundMapEnum }
+export type SoundMap = SoundMapEnum
+

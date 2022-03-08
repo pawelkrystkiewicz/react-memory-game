@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import App from './app/app'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import reportWebVitals from './reportWebVitals'
+import { store } from './store'
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<Provider store={store}>
+			<App />
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
 )
 
-serviceWorkerRegistration.register()
-reportWebVitals(console.log)
+serviceWorkerRegistration.unregister()
+// reportWebVitals(console.log)
