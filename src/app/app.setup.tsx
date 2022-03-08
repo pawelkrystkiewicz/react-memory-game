@@ -7,20 +7,26 @@ import AboutPage from '../pages/about'
 import GamePage from '../pages/game'
 import { persistor } from '../store'
 import { GlobalStyle } from '../ui/global'
-import MantineThemeConfig from '../ui/theme'
+import { EmotionTheme, MantineThemeConfig } from '../ui/theme'
+import { Background } from '../components/layout'
+import { ThemeProvider } from '@emotion/react'
 
 const Setup: React.FC = () => (
 	<PersistGate loading={<Loader />} persistor={persistor}>
 		<MantineProvider theme={MantineThemeConfig}>
-			<GlobalStyle />
-			<BrowserRouter>
-				<Routes>
-					<Route index element={<IndexPage />} />
-					<Route path={Nav.Home} element={<IndexPage />} />
-					<Route path={Nav.Game} element={<GamePage />} />
-					<Route path={Nav.About} element={<AboutPage />} />
-				</Routes>
-			</BrowserRouter>
+			<ThemeProvider theme={EmotionTheme}>
+				<GlobalStyle />
+				<Background>
+					<BrowserRouter>
+						<Routes>
+							<Route index element={<IndexPage />} />
+							<Route path={Nav.Home} element={<IndexPage />} />
+							<Route path={Nav.Game} element={<GamePage />} />
+							<Route path={Nav.About} element={<AboutPage />} />
+						</Routes>
+					</BrowserRouter>
+				</Background>
+			</ThemeProvider>
 		</MantineProvider>
 	</PersistGate>
 )

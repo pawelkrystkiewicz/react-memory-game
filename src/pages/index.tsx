@@ -14,6 +14,8 @@ import Rabbit from '../assets/images/rabbit.png'
 import Star from '../assets/images/star.png'
 import { gameCtrl } from '../store/slices/game'
 import { useAppDispatch } from '../hooks/redux'
+import * as Layout from '../components/layout'
+import { useNavigate } from 'react-router-dom'
 
 const data = [
 	{
@@ -52,28 +54,42 @@ const data = [
 
 export default function IndexPage() {
 	const dispatch = useAppDispatch()
-
+	const navigate = useNavigate()
 	const handleGameStart = () => {
 		dispatch(gameCtrl.setup(data))
+		goToPath(Nav.Game)
 	}
 
+	const goToPath = (path: string) => navigate(path)
+	const goToAbout = () => goToPath(Nav.About)
+
 	return (
-		<div>
-			<h1>{SETTINGS.appName}</h1>
-			<Link to={Nav.Game}>
-				<Button uppercase radius='lg' onClick={handleGameStart}>
+		<Layout.Main>
+			<Layout.Title>{SETTINGS.appName}</Layout.Title>
+			<Layout.Content>
+				<Button
+					fullWidth
+					uppercase
+					radius='xl'
+					variant='white'
+					onClick={handleGameStart}
+				>
 					New game
 				</Button>
-			</Link>
-			<Link to={Nav.About}>
-				<Button uppercase radius='lg'>
+				<Button
+					onClick={goToAbout}
+					fullWidth
+					uppercase
+					radius='xl'
+					variant='outline'
+				>
 					About
 				</Button>
-			</Link>
+			</Layout.Content>
 
-			<footer>
+			<Layout.Footer>
 				{SETTINGS.partialFooter}&nbsp;&copy; {new Date().getFullYear()}
-			</footer>
-		</div>
+			</Layout.Footer>
+		</Layout.Main>
 	)
 }

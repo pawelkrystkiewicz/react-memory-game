@@ -1,10 +1,9 @@
-const SETTINGS = {
-	appName: 'React Memory Game',
+import { Settings } from './models/system'
+
+const SETTINGS: Settings = {
+	appName: 'Memory Game',
 	partialFooter: 'Paweł Krystkiewicz',
-	defaultGridSize: {
-		rows: 4,
-		columns: 4,
-	},
+	backgroundImagePath: '/images/night-sky.jpg',
 }
 
 export default SETTINGS
