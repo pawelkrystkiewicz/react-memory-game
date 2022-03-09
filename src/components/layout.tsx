@@ -21,11 +21,12 @@ export const Main = styled.main<StyledWithTheme>`
 	z-index: 10;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 1.3fr 1.5fr min-content;
+	grid-template-rows: 1.3fr 1.5fr min-content min-content;
 	gap: 0px 0px;
 	grid-template-areas:
 		'title'
 		'content'
+		'navigation'
 		'footer';
 
 	height: 100%;
@@ -39,6 +40,13 @@ export const Content = styled.div`
 	& > *:not(:last-child) {
 		margin-bottom: 20px;
 	}
+`
+export const Navigation = styled.div`
+	grid-area: navigation;
+	justify-self: center;
+	align-self: center;
+	width: 100%;
+	margin: 10px 0;
 `
 export const Footer = styled.footer`
 	font-size: 12px;

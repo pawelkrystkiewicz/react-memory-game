@@ -5,7 +5,7 @@ import GameGrid from '../components/game-grid'
 import * as GameLayout from '../components/game-layout'
 import GameStat from '../components/game-stat'
 import { Footer } from '../components/layout'
-import AppTitle from '../components/title'
+import AppHeader from '../components/title'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
@@ -49,7 +49,7 @@ export default function GamePage() {
 
 	return (
 		<GameLayout.Body>
-			<AppTitle />
+			<AppHeader />
 			<GameLayout.Stats>
 				<GameStat title='Moves' value={moves} color={colors.imperialBlue} />
 				<GameStat

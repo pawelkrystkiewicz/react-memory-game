@@ -37,15 +37,6 @@ export const GlobalStyle: React.FC = () => (
 				font-weight: 400;
 				background-color: #fafafa;
 				scrollbar-gutter: stable;
-
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6 {
-					font-family: 'Post No Bills Colombo', sans-serif;
-				}
 			}
 			.no-select {
 				user-select: none;
