@@ -44,9 +44,4 @@ export const Footer = styled.footer`
 	grid-area: footer;
 	margin: 0 auto;
 `
-export const Title = styled.h1`
-	grid-area: title;
-	text-transform: uppercase;
-	justify-self: center;
-	align-self: center;
-`
+

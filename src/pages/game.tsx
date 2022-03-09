@@ -1,14 +1,15 @@
 import { Button } from '@mantine/core'
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import GameGrid from '../components/game-grid'
+import * as GameLayout from '../components/game-layout'
+import GameStat from '../components/game-stat'
+import { Footer } from '../components/layout'
+import AppTitle from '../components/title'
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
 import { gameCtrl, GameStage, selectGameState } from '../store/slices/game'
-import * as GameLayout from '../components/game-layout'
-import { Footer } from '../components/layout'
-import GameStat from '../components/game-stat'
 import colors from '../ui/colors'
 
 export default function GamePage() {
@@ -48,12 +49,12 @@ export default function GamePage() {
 
 	return (
 		<GameLayout.Body>
-			<GameLayout.Title>{SETTINGS.appName}</GameLayout.Title>
+			<AppTitle />
 			<GameLayout.Stats>
 				<GameStat title='Moves' value={moves} color={colors.imperialBlue} />
 				<GameStat
 					title='Found'
-					value={`${matched.length}/16`}
+					value={`${matched.length}/8`}
 					color={colors.rebelGreen}
 				/>
 				<GameStat title='Time' value={timeElapsed} color={colors.rebelOrange} />

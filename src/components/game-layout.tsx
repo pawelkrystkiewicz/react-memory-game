@@ -39,11 +39,7 @@ export const Buttons = styled.div`
 	align-self: center;
 `
 
-export const Title = styled.h1`
-	grid-area: title;
-	text-transform: uppercase;
-	justify-self: center;
-`
+
 export const Stats = styled.div`
 	grid-area: stats;
 	display: flex;

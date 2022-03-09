@@ -2,16 +2,17 @@ import { Button, List, Text } from '@mantine/core'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Layout from '../components/layout'
+import AppTitle from '../components/title'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
 
 export default function AboutPage() {
 	return (
 		<Layout.Main>
-			<Layout.Title>{SETTINGS.appName}</Layout.Title>
+			<AppTitle />
 			<h2>About</h2>
 			<Link to={Nav.Home}>
-				<Button uppercase radius='lg' variant="subtle">
+				<Button uppercase radius='lg' variant='subtle'>
 					Back
 				</Button>
 			</Link>

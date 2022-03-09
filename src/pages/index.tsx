@@ -16,6 +16,7 @@ import { gameCtrl } from '../store/slices/game'
 import { useAppDispatch } from '../hooks/redux'
 import * as Layout from '../components/layout'
 import { useNavigate } from 'react-router-dom'
+import AppTitle from '../components/title'
 
 const data = [
 	{
@@ -65,7 +66,7 @@ export default function IndexPage() {
 
 	return (
 		<Layout.Main>
-			<Layout.Title>{SETTINGS.appName}</Layout.Title>
+			<AppTitle />
 			<Layout.Content>
 				<Button
 					fullWidth
