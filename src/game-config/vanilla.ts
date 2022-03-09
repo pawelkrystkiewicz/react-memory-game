@@ -14,7 +14,7 @@ const gameCharacters: string[] = [
 ]
 
 const deck: GameDeck = gameCharacters.map(name => ({
-	src: `${basePath}${name}.jpg`,
+	src: `${basePath}${name}.png`,
 	id: `${name}-1`,
 }))
 

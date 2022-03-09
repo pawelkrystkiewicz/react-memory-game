@@ -4,6 +4,7 @@ export enum NavigationPathEnum {
 	Home = '/',
 	Game = '/game',
 	About = '/about',
+	SelectGame = '/select-game',
 }
 
 export const Nav = { ...NavigationPathEnum }

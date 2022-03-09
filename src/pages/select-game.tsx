@@ -7,40 +7,49 @@ import { useAppDispatch } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
 import { gameCtrl } from '../store/slices/game'
-import deck from '../game-config/vanilla'
+import { GameDeck } from '../models/system'
+import gameModes from '../game-config'
 
-export default function IndexPage() {
+export default function SelectGamePage() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
 	const goToPath = (path: string) => navigate(path)
-	const goToAbout = () => goToPath(Nav.About)
-	const goToSelectGame = () => goToPath(Nav.SelectGame)
+	const goToMenu = () => goToPath(Nav.Home)
+
+	const handleGameStart = (deck: GameDeck) => {
+		dispatch(gameCtrl.setup(deck))
+		goToPath(Nav.Game)
+	}
 
 	return (
 		<Layout.Main>
 			<AppHeader />
 			<Layout.Content>
+				{Object.keys(gameModes).map(key => (
+					<Button
+						key={gameModes[key].title}
+						fullWidth
+						uppercase
+						radius='xl'
+						variant='outline'
+						onClick={() => handleGameStart(gameModes[key].deck)}
+					>
+						{gameModes[key].title}
+					</Button>
+				))}
+			</Layout.Content>
+			<Layout.Navigation>
 				<Button
+					onClick={goToMenu}
 					fullWidth
 					uppercase
 					radius='xl'
 					variant='white'
-					onClick={goToSelectGame}
 				>
-					New game
+					Menu
 				</Button>
-				<Button
-					onClick={goToAbout}
-					fullWidth
-					uppercase
-					radius='xl'
-					variant='outline'
-				>
-					About
-				</Button>
-			</Layout.Content>
-
+			</Layout.Navigation>
 			<Layout.Footer>
 				{SETTINGS.partialFooter}&nbsp;&copy; {new Date().getFullYear()}
 			</Layout.Footer>

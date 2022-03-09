@@ -10,6 +10,7 @@ import { GlobalStyle } from '../ui/global'
 import { EmotionTheme, MantineThemeConfig } from '../ui/theme'
 import { Background } from '../components/layout'
 import { ThemeProvider } from '@emotion/react'
+import SelectGamePage from '../pages/select-game'
 
 const Setup: React.FC = () => (
 	<PersistGate loading={<Loader />} persistor={persistor}>
@@ -28,6 +29,7 @@ const Setup: React.FC = () => (
 							<Route path={Nav.Home} element={<IndexPage />} />
 							<Route path={Nav.Game} element={<GamePage />} />
 							<Route path={Nav.About} element={<AboutPage />} />
+							<Route path={Nav.SelectGame} element={<SelectGamePage />} />
 						</Routes>
 					</BrowserRouter>
 				</Background>

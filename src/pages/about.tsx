@@ -18,18 +18,29 @@ export default function AboutPage() {
 						Vanilla game images:&nbsp;
 						<a
 							href='https://www.flaticon.com/free-icons/origami'
-							title='origami icons'
+							title='FlatIcon'
 							target='_blank'
 							rel='noreferrer'
 						>
 							Origami icons by Freepik - Flaticon
 						</a>
 					</List.Item>
+					<List.Item>
+						KotOR game images:&nbsp;
+						<a
+							href='https://deadlystream.com/files/file/1213-hd-npc-portraits/'
+							title='DeadlyStream'
+							target='_blank'
+							rel='noreferrer'
+						>
+							KotOR character portraits by <i>ndix UR</i>
+						</a>
+					</List.Item>
 				</List>
 			</Layout.Content>
 			<Layout.Navigation>
 				<Link to={Nav.Home}>
-					<Button uppercase radius='lg' variant='subtle' fullWidth>
+					<Button uppercase radius='lg' variant='white' fullWidth>
 						Back
 					</Button>
 				</Link>
