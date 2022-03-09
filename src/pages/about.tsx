@@ -3,10 +3,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Layout from '../components/layout'
 import AppHeader from '../components/title'
+import { useAppDispatch } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
+import { sfx } from '../store/slices/sound'
 
 export default function AboutPage() {
+	const dispatch = useAppDispatch()
+	const playCloseSound = () => dispatch(sfx.close())
+
 	return (
 		<Layout.Main>
 			<AppHeader />
@@ -40,7 +45,13 @@ export default function AboutPage() {
 			</Layout.Content>
 			<Layout.Navigation>
 				<Link to={Nav.Home}>
-					<Button uppercase radius='lg' variant='white' fullWidth>
+					<Button
+						onClick={playCloseSound}
+						uppercase
+						radius='lg'
+						variant='white'
+						fullWidth
+					>
 						Back
 					</Button>
 				</Link>

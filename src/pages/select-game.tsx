@@ -9,15 +9,24 @@ import { Nav } from '../models/routes'
 import { GameDeck } from '../models/system'
 import SETTINGS from '../settings'
 import { gameCtrl } from '../store/slices/game'
+import { sfx } from '../store/slices/sound'
 
 export default function SelectGamePage() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
+	const playCloseSound = () => dispatch(sfx.close())
+	const playClickSound = () => dispatch(sfx.click())
+
 	const goToPath = (path: string) => navigate(path)
-	const goToMenu = () => goToPath(Nav.Home)
+	const goToMenu = () => {
+		playCloseSound()
+		goToPath(Nav.Home)
+	}
 
 	const handleGameStart = (deck: GameDeck) => {
+		playClickSound()
+
 		dispatch(gameCtrl.setup(deck))
 		goToPath(Nav.Game)
 	}

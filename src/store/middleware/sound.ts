@@ -1,5 +1,12 @@
 import soundsMiddleware from 'redux-sounds'
 import { SoundMap } from './sound-map'
+import Click from '../../sound/ui/gui_click.wav'
+import Close from '../../sound/ui/gui_close.wav'
+import Complete from '../../sound/ui/gui_complete.wav'
+import Error from '../../sound/ui/gui_error.wav'
+import Level from '../../sound/ui/gui_level.wav'
+import Open from '../../sound/ui/gui_open.wav'
+import Quest from '../../sound/ui/gui_quest.wav'
 
 export type SoundMetaPlay = { play: string }
 export type SoundMetaStop = { stop: string }
@@ -23,34 +30,13 @@ interface SoundsMapping {
 }
 
 const soundsData: SoundsMapping = {
-	// [SoundMap.Error1]: Error1,
-	// [SoundMap.Error2]: Error2,
-	// [SoundMap.Error3]: Error3,
-	// [SoundMap.SuccessSound]: SuccessSound,
-	// [SoundMap.UILock]: UILock,
-	// [SoundMap.UIUnlock]: UIUnlock,
-	// [SoundMap.UITap1]: UITap1,
-	// [SoundMap.UITap2]: UITap2,
-	// [SoundMap.UITap3]: UITap3,
-	// [SoundMap.UITap4]: UITap4,
-	// [SoundMap.UICameraShutter]: UICameraShutter,
-	// [SoundMap.StateChangeConfirmUp]: StateChangeConfirmUp,
-	// [SoundMap.StateChangeConfirmDown]: StateChangeConfirmDown,
-	// [SoundMap.NavigationHoverTap]: NavigationHoverTap,
-	// [SoundMap.NavigationSelectionCompleteCelebration]:
-	//   NavigationSelectionCompleteCelebration,
-	// [SoundMap.NavigationForwardSelectionMinimal]:
-	//   NavigationForwardSelectionMinimal,
-	// [SoundMap.NavigationBackwardSelectionMinimal]:
-	//   NavigationBackwardSelectionMinimal,
-	// [SoundMap.NavigationForwardSelection]: NavigationForwardSelection,
-	// [SoundMap.NavigationBackwardSelection]: NavigationBackwardSelection,
-	// [SoundMap.NavTransitionLeft]: NavTransitionLeft,
-	// [SoundMap.NavTransitionRight]: NavTransitionRight,
-	// [SoundMap.NavInvalidSelection]: NavInvalidSelection,
-	// [SoundMap.NavCancel]: NavCancel,
-	// [SoundMap.UILoading]: UILoading,
-	// [SoundMap.UIRefresh]: UIRefresh,
+	[SoundMap.Click]: Click,
+	[SoundMap.Complete]: Complete,
+	[SoundMap.Error]: Error,
+	[SoundMap.Level]: Level,
+	[SoundMap.Open]: Open,
+	[SoundMap.Quest]: Quest,
+	[SoundMap.Close]: Close,
 }
 
 export default soundsMiddleware(soundsData)

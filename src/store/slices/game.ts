@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { GameDeck } from '../../models/system'
+import { compareSelected } from '../../utils/compare-selected'
 import { duplicateWithUniqueId } from '../../utils/duplicate-array'
 import { getSrcByImageId } from '../../utils/get-src-by-image-id'
 import { removeLast2Characters } from '../../utils/remove-id'
 import { shuffleArray } from '../../utils/shuffle-array'
 import { RootState } from '../index'
+import { SoundMap } from '../middleware/sound-map'
 
 export enum GameStage {
 	VOID = 'VOID',
@@ -75,12 +77,9 @@ const game = createSlice({
 		checkMatch: state => {
 			if (state.selected.length === 2) {
 				state.moves += 1
-				const [id1, id2] = state.selected
-				const cardName1 = removeLast2Characters(id1)
-				const cardName2 = removeLast2Characters(id2)
-
-				if (cardName1 === cardName2) {
-					const src = getSrcByImageId(id1, state.deck)
+				const areMatching = compareSelected(state.selected)
+				if (areMatching) {
+					const src = getSrcByImageId(state.selected[0], state.deck)
 					src && state.matched.push(src)
 				}
 			}
