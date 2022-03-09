@@ -1,4 +1,3 @@
-
 export const shuffleArray = <T = string>(input: Array<T>): Array<T> => {
 	const shuffled = input.slice()
 	for (let i = shuffled.length - 1; i > 0; i--) {
