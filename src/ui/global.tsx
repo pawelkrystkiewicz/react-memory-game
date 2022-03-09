@@ -33,10 +33,19 @@ export const GlobalStyle: React.FC = () => (
 				scroll-behavior: smooth;
 
 				font-size: clamp(100%, 1rem + 2vw, 18px);
-				font-family: 'League Spartan', sans-serif;
+				font-family: 'Poppins', sans-serif;
 				font-weight: 400;
 				background-color: #fafafa;
 				scrollbar-gutter: stable;
+
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					font-family: 'Post No Bills Colombo', sans-serif;
+				}
 			}
 			.no-select {
 				user-select: none;

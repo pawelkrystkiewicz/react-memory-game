@@ -41,7 +41,7 @@ export const Content = styled.div`
 	}
 `
 export const Footer = styled.footer`
+	font-size: 12px;
 	grid-area: footer;
 	margin: 0 auto;
 `
-

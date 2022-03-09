@@ -13,7 +13,12 @@ import { ThemeProvider } from '@emotion/react'
 
 const Setup: React.FC = () => (
 	<PersistGate loading={<Loader />} persistor={persistor}>
-		<MantineProvider theme={MantineThemeConfig}>
+		<MantineProvider
+			theme={{
+				...MantineThemeConfig,
+				headings: { fontFamily: 'Post No Bills Colombo, sans-serif' },
+			}}
+		>
 			<ThemeProvider theme={EmotionTheme}>
 				<GlobalStyle />
 				<Background>

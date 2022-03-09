@@ -8,8 +8,7 @@ export const MantineThemeConfig: Partial<MantineTheme> = {
 	loader: 'oval',
 	colorScheme: 'dark',
 	primaryColor: 'gray',
-	fontFamily: 'League Spartan',
-	// headings: { fontFamily: 'Greycliff CF, sans-serif' },
+	fontFamily: 'Poppins, sans-serif',
 }
 
 export const EmotionTheme: Theme = {
