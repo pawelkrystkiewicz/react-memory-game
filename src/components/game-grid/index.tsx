@@ -2,6 +2,7 @@ import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { GameImage } from '../../models/system'
 import { gameCtrl, selectGameState } from '../../store/slices/game'
+import { sfx } from '../../store/slices/sound'
 import GameCard from '../game-card'
 import { GameGridStyled } from './styled'
 
@@ -15,7 +16,10 @@ const GameGrid: React.FC<GameGridProps> = ({ visible }) => {
 
 	const handleGridClick = (event: any) => {
 		const { id } = event.target
-		id && dispatch(gameCtrl.playerMove(id))
+		if (id) {
+			dispatch(gameCtrl.playerMove(id))
+			dispatch(sfx.click())
+		}
 	}
 
 	return visible ? (

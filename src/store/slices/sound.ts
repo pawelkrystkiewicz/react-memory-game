@@ -1,37 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { SoundMap } from '../middleware/sound-map'
 
-const nothing = ''
-
 export const soundSlice = createSlice({
 	name: 'sound',
 	initialState: {},
 	reducers: {
-		navLeft: {
+		quest: {
 			reducer: () => {
 				// do nothing
 			},
 			prepare: () => ({
 				payload: undefined,
-				meta: { sound: { play: nothing } },
+				meta: { sound: { play: SoundMap.Quest } },
 			}),
 		},
-		navRight: {
+		close: {
 			reducer: () => {
 				// do nothing
 			},
 			prepare: () => ({
 				payload: undefined,
-				meta: { sound: { play: nothing } },
+				meta: { sound: { play: SoundMap.Close } },
 			}),
 		},
-		loading: {
+		click: {
 			reducer: () => {
 				// do nothing
 			},
 			prepare: () => ({
 				payload: undefined,
-				meta: { sound: { play: nothing } },
+				meta: { sound: { play: SoundMap.Click } },
 			}),
 		},
 		success: {
@@ -40,7 +38,16 @@ export const soundSlice = createSlice({
 			},
 			prepare: () => ({
 				payload: undefined,
-				meta: { sound: { play: nothing } },
+				meta: { sound: { play: SoundMap.Complete } },
+			}),
+		},
+		gameEnd: {
+			reducer: () => {
+				// do nothing
+			},
+			prepare: () => ({
+				payload: undefined,
+				meta: { sound: { play: SoundMap.Level } },
 			}),
 		},
 		error: {
@@ -49,12 +56,12 @@ export const soundSlice = createSlice({
 			},
 			prepare: () => ({
 				payload: undefined,
-				meta: { sound: { play: nothing } },
+				meta: { sound: { play: SoundMap.Error } },
 			}),
 		},
 	},
 })
 
-export const soundboard = soundSlice.actions
+export const sfx = soundSlice.actions
 
 export default soundSlice.reducer

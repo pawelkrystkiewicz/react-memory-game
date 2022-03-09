@@ -10,7 +10,9 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
 import { gameCtrl, GameStage, selectGameState } from '../store/slices/game'
+import { sfx } from '../store/slices/sound'
 import colors from '../ui/colors'
+import { compareSelected } from '../utils/compare-selected'
 
 export default function GamePage() {
 	const dispatch = useAppDispatch()
@@ -18,8 +20,12 @@ export default function GamePage() {
 	const { selected, matched, moves, timeElapsed, stage } =
 		useAppSelector(selectGameState)
 
-	const handleGameReset = () => dispatch(gameCtrl.reset())
+	const handleGameReset = () => {
+		dispatch(sfx.quest())
+		dispatch(gameCtrl.reset())
+	}
 	const handleForceEndGame = () => {
+		dispatch(sfx.close())
 		navigate(Nav.Home)
 		dispatch(gameCtrl.cleanUp())
 	}
@@ -27,6 +33,9 @@ export default function GamePage() {
 	useEffect(() => {
 		if (selected.length === 2) {
 			const timer = setTimeout(() => {
+				const areMatching = compareSelected(selected)
+				areMatching && dispatch(sfx.success())
+
 				dispatch(gameCtrl.checkMatch())
 				dispatch(gameCtrl.hideSelectedCards())
 			}, 500)
@@ -42,6 +51,20 @@ export default function GamePage() {
 			return () => clearTimeout(timer)
 		}
 	})
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			dispatch(sfx.quest())
+		}, 200)
+		return () => clearTimeout(timer)
+	}, [])
+
+	useEffect(() => {
+		if (matched.length === 8) {
+			dispatch(sfx.gameEnd())
+		}
+	}, [matched])
+
 	const GRID_VISIBLE = [GameStage.PLAYING, GameStage.READY].includes(stage)
 	const CAN_RESTART_GAME = [GameStage.PLAYING, GameStage.ENDED].includes(stage)
 	const CAN_FORFEIT_GAME = stage === GameStage.PLAYING
