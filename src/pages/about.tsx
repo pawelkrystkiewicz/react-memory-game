@@ -1,4 +1,4 @@
-import { Button, List, Text } from '@mantine/core'
+import { Button, List } from '@mantine/core'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Layout from '../components/layout'

@@ -3,12 +3,12 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Layout from '../components/layout'
 import AppHeader from '../components/title'
+import gameModes from '../game-config'
 import { useAppDispatch } from '../hooks/redux'
 import { Nav } from '../models/routes'
+import { GameDeck } from '../models/system'
 import SETTINGS from '../settings'
 import { gameCtrl } from '../store/slices/game'
-import { GameDeck } from '../models/system'
-import gameModes from '../game-config'
 
 export default function SelectGamePage() {
 	const dispatch = useAppDispatch()

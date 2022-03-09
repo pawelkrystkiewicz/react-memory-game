@@ -3,14 +3,10 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as Layout from '../components/layout'
 import AppHeader from '../components/title'
-import { useAppDispatch } from '../hooks/redux'
 import { Nav } from '../models/routes'
 import SETTINGS from '../settings'
-import { gameCtrl } from '../store/slices/game'
-import deck from '../game-config/vanilla'
 
 export default function IndexPage() {
-	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
 	const goToPath = (path: string) => navigate(path)
