@@ -32,14 +32,19 @@ export default function GamePage() {
 
 	useEffect(() => {
 		if (selected.length === 2) {
-			const timer = setTimeout(() => {
+			const timer1 = setTimeout(() => {
 				const areMatching = compareSelected(selected)
 				areMatching && dispatch(sfx.success())
-
 				dispatch(gameCtrl.checkMatch())
-				dispatch(gameCtrl.hideSelectedCards())
 			}, 500)
-			return () => clearTimeout(timer)
+
+			const timer2 = setTimeout(() => {
+				dispatch(gameCtrl.hideSelectedCards())
+			}, 1500)
+			return () => {
+				clearTimeout(timer1)
+				clearTimeout(timer2)
+			}
 		}
 	}, [selected])
 
